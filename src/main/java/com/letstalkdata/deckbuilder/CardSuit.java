@@ -54,6 +54,10 @@ public class CardSuit {
         this.color = color;
     }
 
+    public CardColor getColor() {
+        return color;
+    }
+
     /**
      * Returns a string with the name and color (if present) of the CardSuit.
      *

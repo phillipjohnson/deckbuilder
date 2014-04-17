@@ -22,6 +22,10 @@ public class Card {
         return suit;
     }
 
+    public CardColor getColor(){
+        return suit.getColor();
+    }
+
     /**
      * Compares the specified Card's rank to this Card's rank.
      *

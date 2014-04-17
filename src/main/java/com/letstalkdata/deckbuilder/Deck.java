@@ -6,6 +6,7 @@ import java.util.*;
  * A Deck is a group of cards from which Cards can be retrieved.
  *
  * The Deck object is backed by a LinkedList ensuring a fixed order of cards.
+ * It is suggested that you call {@link #shuffle()} after creating a new deck.
  *
  * Author: Phillip Johnson
  * Date: 4/13/14
@@ -45,6 +46,27 @@ public final class Deck extends ForwardingLinkedList<Card> {
         super(new LinkedList<>(toCopy));
         this.style = toCopy.style;
         this.aceBehavior = toCopy.aceBehavior;
+    }
+
+    /**
+     * Returns a set of the unique suits in this deck.
+     *
+     * @return the set of unique suits in this deck.
+     */
+    public Set<CardSuit> getUniqueSuits(){
+        Set<CardSuit> suits = new HashSet<>();
+        for(Card c : this){
+            suits.add(c.getSuit());
+        }
+
+        return suits;
+    }
+
+    /**
+     * Forward of {@link java.util.Collections#shuffle(java.util.List)}
+     */
+    public void shuffle(){
+        Collections.shuffle(this);
     }
 
     private static LinkedList<Card> buildDeck(DeckStyle style, AceBehavior aceBehavior){
