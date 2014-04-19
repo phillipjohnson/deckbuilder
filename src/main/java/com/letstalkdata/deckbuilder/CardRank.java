@@ -25,8 +25,8 @@ public class CardRank implements Comparable {
         JOKER_ACE_LOW("Joker",14),
         JOKER_ACE_HIGH("Joker",15);
 
-        private String name;
-        private int value;
+        private final String name;
+        private final int value;
 
         private Standard(String name, int value){
             this.name = name;
@@ -73,6 +73,16 @@ public class CardRank implements Comparable {
         return value;
     }
 
+    private boolean isStandardRank(){
+        for(CardRank.Standard standard: CardRank.Standard.values()){
+            if(this.equals(new CardRank(standard))){
+                return true;
+            }
+        }
+
+        return false;
+    }
+
     /**
      * Compares this CardRank with the specified object for order.
      *
@@ -93,8 +103,20 @@ public class CardRank implements Comparable {
     }
 
     @Override
+    /**
+     * Returns the name and value of the Rank.
+     *
+     * Standard ranks will not include the value.
+     */
     public String toString(){
-        return name + "(" + value + ")";
+        String val = "";
+        if(isStandardRank()){
+            val = name;
+        } else {
+            val = name + "(" + value + ")";
+        }
+
+        return val;
     }
 
     /**

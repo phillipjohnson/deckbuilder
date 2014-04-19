@@ -58,16 +58,40 @@ public class CardSuit {
         return color;
     }
 
+    private boolean isStandardSuit(){
+        for(CardSuit.Standard standard: CardSuit.Standard.values()){
+            if(this.equals(new CardSuit(standard))){
+                return true;
+            }
+        }
+        return false;
+    }
+
     /**
      * Returns a string with the name and color (if present) of the CardSuit.
+     *
+     * Standard suits will be abbreviated.
      *
      * @return the string value of the CardSuit
      */
     @Override
     public String toString(){
-        String val = name;
-        if(!color.equals(new CardColor(CardColor.Standard.NONE))){
-            val += " (" + color + ")";
+        String val = "";
+        if(isStandardSuit()){
+            if(this.equals(new CardSuit(Standard.CLUB))){
+                val = "C";
+            } else if(this.equals(new CardSuit(Standard.DIAMOND))){
+                val = "D";
+            } else if(this.equals(new CardSuit(Standard.SPADE))){
+                val = "S";
+            } else if(this.equals(new CardSuit(Standard.HEART))){
+                val = "H";
+            }
+        } else {
+            val = name;
+            if (!color.equals(new CardColor(CardColor.Standard.NONE))) {
+                val += " (" + color + ")";
+            }
         }
 
         return val;

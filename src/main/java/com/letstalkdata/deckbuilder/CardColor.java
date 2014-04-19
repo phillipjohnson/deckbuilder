@@ -30,6 +30,14 @@ public class CardColor {
         this.name = color.getName();
     }
 
+    @Override
+    /**
+     * Returns the name of the color.
+     */
+    public String toString() {
+        return "CardColor[" + name + "]";
+    }
+
     /**
      * Compares the specified object with this CardColor for equality.
      *

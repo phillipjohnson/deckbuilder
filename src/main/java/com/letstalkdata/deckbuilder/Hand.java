@@ -9,6 +9,19 @@ import java.util.stream.Collectors;
  */
 public class Hand extends ForwardingLinkedList<Card>{
 
+    /**
+     * Creates an empty hand
+     */
+    public Hand(){
+        super(new LinkedList<>());
+    }
+
+    /**
+     * Creates a hand from an existing collection of Cards.
+     *
+     * Conveniently, this method can also be used to safely copy another Hand.
+     * @param cards the collection of cards to seed the new Hand
+     */
     public Hand(Collection<? extends Card> cards){
         super(new LinkedList<>(cards));
     }
@@ -51,4 +64,5 @@ public class Hand extends ForwardingLinkedList<Card>{
                 .collect(Collectors.toList());
         return new Hand(newHand);
     }
+
 }

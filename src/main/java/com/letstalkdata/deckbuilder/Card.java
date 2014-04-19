@@ -6,12 +6,17 @@ package com.letstalkdata.deckbuilder;
  */
 public class Card {
 
-    private CardRank rank;
-    private CardSuit suit;
+    private final CardRank rank;
+    private final CardSuit suit;
 
     public Card(CardRank rank, CardSuit suit){
         this.rank = rank;
         this.suit = suit;
+    }
+
+    public Card(CardRank.Standard rank,CardSuit.Standard suit){
+        this.rank = new CardRank(rank);
+        this.suit = new CardSuit(suit);
     }
 
     public CardRank getRank() {

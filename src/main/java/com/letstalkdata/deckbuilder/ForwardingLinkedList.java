@@ -911,4 +911,19 @@ class ForwardingLinkedList<E> implements Iterable<E>, Collection<E>, Deque<E>, L
     public Iterator<E> iterator() {
         return list.iterator();
     }
+
+    @Override
+    public String toString() {
+        return list.toString();
+    }
+
+    @Override
+    public boolean equals(Object o){
+        return list.equals(o);
+    }
+
+    @Override
+    public int hashCode(){
+        return list.hashCode();
+    }
 }

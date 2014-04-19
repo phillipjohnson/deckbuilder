@@ -33,18 +33,18 @@ public class CardTest {
 
     @Test
     public void testEquals() throws Exception {
-        Card c1 = new Card(new CardRank(CardRank.Standard.EIGHT),new CardSuit(CardSuit.Standard.CLUB));
-        Card c2 = new Card(new CardRank(CardRank.Standard.EIGHT),new CardSuit(CardSuit.Standard.CLUB));
+        Card c1 = new Card(CardRank.Standard.EIGHT,CardSuit.Standard.CLUB);
+        Card c2 = new Card(CardRank.Standard.EIGHT,CardSuit.Standard.CLUB);
 
         assertTrue(c1.equals(c2));
 
-        c1 = new Card(new CardRank(CardRank.Standard.EIGHT),new CardSuit(CardSuit.Standard.CLUB));
-        c2 = new Card(new CardRank(CardRank.Standard.TEN),new CardSuit(CardSuit.Standard.CLUB));
+        c1 = new Card(CardRank.Standard.EIGHT,CardSuit.Standard.CLUB);
+        c2 = new Card(CardRank.Standard.TEN,CardSuit.Standard.CLUB);
 
         assertFalse(c1.equals(c2));
 
-        c1 = new Card(new CardRank(CardRank.Standard.EIGHT),new CardSuit(CardSuit.Standard.CLUB));
-        c2 = new Card(new CardRank(CardRank.Standard.EIGHT),new CardSuit(CardSuit.Standard.HEART));
+        c1 = new Card(CardRank.Standard.EIGHT,CardSuit.Standard.CLUB);
+        c2 = new Card(CardRank.Standard.EIGHT,CardSuit.Standard.HEART);
 
         assertFalse(c1.equals(c2));
 
